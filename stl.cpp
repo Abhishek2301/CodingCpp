@@ -101,5 +101,55 @@ void stl_main()
   for ( auto it = deque5.begin(); it != deque5.end(); ++it )
     std::cout << ' ' << *it;
   std::cout << std::endl;
+  std::cout << "deque5 contains:";
+  for( auto& i : deque5 )
+  {
+    std::cout << ' ' << i;
+  }
+  std::cout << std::endl;
+  std::cout << "deque5 contains:";
+  for( unsigned i=0; i<deque5.size(); i++ )
+  {
+    std::cout << ' ' << deque5[i];
+  }
+  std::cout << std::endl;
+  std::cout << "deque5 contains:";
+  for( unsigned i=0; i<deque5.size(); i++ )
+  {
+    std::cout << ' ' << deque5.at(i);
+  }
+  std::cout << std::endl;
+  std::cout << "deque1 " << (deque1.empty() ? "is empty" : "is not empty") << '\n';
+  std::cout << "deque5 front is: " <<deque5.front() << std::endl;
+  std::cout << "deque5 back is: " << deque5.back() << std::endl;
+  deque2.push_back(10); deque2.push_back(20); deque2.push_front(30); deque2.push_front(40);
+  std::cout << "deque2 contains:";
+  for( auto& i : deque2 )
+  {
+    std::cout << ' ' << i;
+  }
+  std::cout << std::endl;
+  deque2.pop_back(); deque2.pop_front();
+  std::cout << "deque2 contains:";
+  for( auto& i : deque2 )
+  {
+    std::cout << ' ' << i;
+  }
+  std::cout << std::endl;
+  auto deque_itr = deque3.begin()+1;
+  deque_itr = deque3.insert( deque_itr, 200 );
+  deque_itr=deque_itr+2;
+  deque_itr = deque3.insert ( deque_itr, 2, 300);
+  std::cout << "deque3 contains:";
+  for( auto& i : deque3 )
+  {
+    std::cout << ' ' << i;
+  }
+  std::cout << std::endl;
+  // erase the 2nd element
+  deque5.erase ( deque5.begin()+1 );
+  // erase the first 3 elements:
+  deque5.erase ( deque5.begin(), deque5.begin()+3 );
+  /***************************************************************************/
 
 }

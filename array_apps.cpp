@@ -206,6 +206,8 @@ bool hasPairWithSum( const std::vector<int> & data, int sum )
   return false;
 }
 
+
+
 int findPivot( int arr[], int low, int high )
 {
   if( high<low )
@@ -492,7 +494,9 @@ unsigned getMaxLengthZeroSumSubArray( int arr[], int n )
   return max_len;
 }
 
-/* Given an array of positive and negative numbers, arrange them such that all negative integers appear before all the positive integers in the array without using any additional data structure like hash table, arrays, etc. The order of appearance should be maintained. Time: O(NlogN) Space:O(logN )*/
+/* Given an array of positive and negative numbers, arrange them such that all negative integers 
+appear before all the positive integers in the array without using any additional data structure 
+like hash table, arrays, etc. The order of appearance should be maintained. Time: O(NlogN) Space:O(logN )*/
 /****************************************************************************************************************************************************************************************************************/
 void reverse( int arr[], int l, int r )
 {
@@ -696,7 +700,20 @@ int maxSubArraySum( int a[], int size )
   return max_so_far;
 }
 
-/* In a daily share trading, a buyer buys shares in the morning and sells it on same day. If the trader is allowed to make at most 2 transactions in a day, where as second transaction can only start after first one is complete (Sell->buy->sell->buy). Given stock prices throughout day, find out maximum profit that a share trader could have made. (1) Create a table profit[0..n-1] and initialize all values in it 0. (2) Traverse price[] from right to left and update profit[i] such that profit[i] stores maximum profit achievable from one transaction in subarray price[i..n-1] (3) Traverse price[] from left to right and update profit[i] such that profit[i] stores maximum profit such that profit[i] contains maximum achievable profit from two transactions in subarray price[0..i]. (4) Return profit[n-1]. To do step 1, we need to keep track of maximum price from right to left side and to do step 2, we need to keep track of minimum price from left to right. Why we traverse in reverse directions? The idea is to save space, in second step, we use same array for both purposes, maximum with 1 transaction and maximum with 2 transactions. After an iteration i, the array profit[0..i] contains maximum profit with 2 transactions and profit[i+1..n-1] contains profit with two transactions. */
+/* In a daily share trading, a buyer buys shares in the morning and sells it on same day. 
+If the trader is allowed to make at most 2 transactions in a day, where as second transaction 
+can only start after first one is complete (Sell->buy->sell->buy). 
+Given stock prices throughout day, find out maximum profit that a share trader could have made. 
+(1) Create a table profit[0..n-1] and initialize all values in it 0. 
+(2) Traverse price[] from right to left and update profit[i] such that profit[i] stores maximum 
+profit achievable from one transaction in subarray price[i..n-1] 
+(3) Traverse price[] from left to right and update profit[i] such that profit[i] stores maximum profit 
+such that profit[i] contains maximum achievable profit from two transactions in subarray price[0..i]. 
+(4) Return profit[n-1]. To do step 1, we need to keep track of maximum price from right to left side 
+and to do step 2, we need to keep track of minimum price from left to right. Why we traverse in reverse 
+directions? The idea is to save space, in second step, we use same array for both purposes, maximum with 
+1 transaction and maximum with 2 transactions. After an iteration i, the array profit[0..i] 
+contains maximum profit with 2 transactions and profit[i+1..n-1] contains profit with two transactions. */
 int maxProfit( int price[], int n )
 {
   int profit[n];
@@ -723,6 +740,11 @@ int maxProfit( int price[], int n )
   return profit[n-1];
 }
 
+/* 
+LeetCode 15. 3Sum: Given an array nums of n integers, are there elements a, b, c in nums such 
+that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+Time Complexity: O(n^2); Auxiliary Space: O(n)
+*/
 void findZeroSumTriplets( int arr[], int n )
 {
   bool found = false;
@@ -745,6 +767,9 @@ void findZeroSumTriplets( int arr[], int n )
     cout << "No Triplet with zero sum found!" << endl;
 }
 
+/*
+Time Complexity : O(n^2); Auxiliary Space : O(1)
+*/
 void findZeroSumTriplets1( int arr[], int n )
 {
   bool found = false;
@@ -773,6 +798,11 @@ void findZeroSumTriplets1( int arr[], int n )
     cout << "No Triplet with zero sum found!" << endl;
 }
 
+/*
+LeetCode 18. 4Sum: Given an array nums of n integers and an integer target, are there 
+elements a, b, c, and d in nums such that a + b + c + d = target? 
+Find all unique quadruplets in the array which gives the sum of target.
+*/
 void findSumQuadruples( int arr[], int n, int k )
 {
   unordered_map< int, pair<int,int> > pairMap;
